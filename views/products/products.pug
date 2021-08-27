@@ -1,0 +1,92 @@
+extends ../layouts/layout
+
+block content
+  .app-content
+    .u-s-p-y-90
+      .container
+        .row 
+          .col-lg-3.col-md-12
+            .shop-w-master
+              h1.shop-w-master__heading.u-s-m-b-30
+                i.fas.fa-filter.u-s-m-r-8
+                span FILTERS
+              .shop-w-master__sidebar
+                .u-s-m-b-30
+                  .shop-w.shop-w--style.CATEGORY
+                    .shop-w__intro-wrap
+                      h1.shop-w__h CATEGORY
+                      span.fas.fa-minus.shop-w__toggle(data-target="#s-category" data-toggle="collapse")
+                    .shop-w__wrap.show#s-category
+                      ul.shop-w__category-list.gl-scroll#fetchCategories
+                        
+                .u-s-m-b-30
+                  .shop-w.shop-w--style
+                    .shop-w__intro-wrap
+                      h1.shop-w__h PRICE
+                      span.fas.fa-minus.shop-w__toggle(data-target="#s-price" data-toggle="collapse") 
+                    .shop-w__wrap.collapse.show#s-price
+                      form(action="/products?price[lte]=500" method = "get").shop-w__form-p
+                        .shop-w__form-p-wrap
+                          div 
+                            label(for="price-min")
+                            input.input-text.input-text--primary-style(type="text" id="price-min" placeholder="Min")
+                          div 
+                            label(for="price-max")
+                            input.input-text.input-text--primary-style(type="text" id="price-max" placeholder="max")
+                          div
+                            button.btn.btn--icon.fas.fa-angle-right.btn--e-transparent-platinum-b-2(type="submit")
+          .col-lg-9.col-md-12
+            .shop-p
+              .shop-p__toolbar.u-s-m-b-30
+                .shop-p__tool-style
+                  .tool-style__group.u-s-m-b-8
+                    span.js-shop-grid-target.is-active Grid
+                    span.js-shop-list-target List
+                  
+              .shop-p__collection
+                .row.is-grid-active
+                  each product in products
+                    .col-lg-4.col-md-6.col-sm-6
+                      .product-m
+                        .product-m__thumb
+                          a.aspect.aspect--bg-grey.aspect--square.u-d-block( href=`/products/${product._id}`)
+                            img.aspect__img(src="/images/product/men/product6.jpg" alt="")
+                          .product-m__quick-look
+                            a.fas.fa-search.qiucker(data-modal="modal" data-modal-id="#quick-look" data-tooltip="tooltip" data-product-id= `${product._id}` data-placement="top" title="Quick Look")
+                          .product-m__add-cart
+                            a.btn--e-brand( href=`/products/add-to-cart/${product._id}` data-modal="modal" data-modal-id="#add-to-cart") Add to Cart
+                        .product-m__content
+                          if product.Categories
+                            .product-m__category
+                              a(href="shop-side-version-2.html")= product.Categories.name
+                          .product-m__name
+                            a(href=`/products/${product._id}`) #{product.name}
+                          .product-m__rating.gl-rating-style
+                            i.fas.fa-star
+                            span.product-m__review (#{product.ratingsQuantity})
+                          if !product.priceDiscount 
+                            span.product-o__price $#{product.price}
+                          else 
+                            span.product-o__price $#{product.price}
+                              span.product-o__discount $#{product.price}
+                          .product-m__hover
+                            .product-m__preview-description
+                              span #{product.description}
+                          .product-m__wishlist
+                            a.far.fa-heart(href="#" data-tooltip="tooltip" data-placement="top" title="Add to Wishlist")
+    .u-s-p-y-60
+      ul.shop-p__pagination
+        li.is-active
+          a(href="?page=1") 1
+        li
+          a(href="?page=2") 2    
+        li
+          a 3
+        li
+          a 4
+        li 
+          a.fas.fa-angle-right              
+                        
+                          
+                            
+                            

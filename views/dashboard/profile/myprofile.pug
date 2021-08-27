@@ -1,0 +1,38 @@
+extends ../../layouts/layout 
+block content 
+  include ../_nav
+    .dash__box.dash__box--shadow.dash__box--radius.dash__box--bg-white.u-s-m-b-30
+      .dash__pad-2
+        h1.dash__h1.u-s-m-b-14 My Profile
+        span.dash__text.u-s-m-b-30 Look all your info, you could customize your profile.
+        .row  
+          .col-lg-4.u-s-m-b-30
+            h2.dash__h2.u-s-m-b-8 Full Name
+            span.dash__text #{user.fristName} #{user.lastName} 
+          .col-lg-4.u-s-m-b-30
+            h2.dash__h2.u-s-m-b-8 Email
+            span.dash__text= user.email
+            .dash__link.dash__link--secondary
+              a Change
+          .col-lg-4.u-s-m-b-30
+            if user.phone
+              h2.dash__h2.u-s-m-b-8 Phone
+              span.dash__text()= (user.phone? `0${user.phone}`: 'Please enter your mobile')
+          if (user.year)
+            .col-lg-4.u-s-m-b-30
+              h2.dash__h2.u-s-m-b-8 Birthday
+              span.dash__text #{user.year}-#{user.month}-#{user.day}
+          if user.gender
+            .col-lg-4.u-s-m-b-30
+              h2.dash__h2.u-s-m-b-8 Gender
+              span.dash__text= user.gender
+        .row
+          .col-lg-12
+            .dash__link.dash__link--secondary.u-s-m-b-30    
+              a(data-modal="modal" data-modal-id="#dash-newsletter") Subscribe Newsletter
+            .u-s-m-b-16
+              a.dash__custom-link.btn--e-transparent-brand-b-2(href="/buyer/dashboard/myprofile/editeprofile") Edit Profile
+            div 
+              a.dash__custom-link.btn--e-brand-b-2 Change Password
+  include ../../model/_subscribe 
+              

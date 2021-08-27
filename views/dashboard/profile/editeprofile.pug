@@ -1,0 +1,87 @@
+extends ../../layouts/layout 
+block content 
+  include ../_nav
+    .dash__box.dash__box--shadow.dash__box--radius.dash__box--bg-white
+      .dash__pad-2
+        h1.dash__h1.u-s-m-b-14 Edit Profile
+        span.dash__text.u-s-m-b-30 Looks like you haven't update your profile
+        .dash__link.dash__link--secondary.u-s-m-b-30
+          a(data-modal="modal" data-modal-id="#dash-newsletter") Subscribe Newsletter
+        .row
+          .col-lg-12
+            form.dash-edit-p.edit-profile
+              .gl-inline
+                .u-s-m-b-30
+                  label.gl-label(for="reg-fname") FIRST NAME *
+                  input.input-text.input-text--primary-style#reg-fname(type="text" value=`${user.fristName}` placeholder=`${user.fristName}`)
+                .u-s-m-b-30
+                  label.gl-label(for="reg-lname") FIRST NAME *
+                  input.input-text.input-text--primary-style#reg-lname(type="text" value=`${user.lastName}` placeholder=`${user.lastName}`)
+                .u-s-m-b-30
+                  label.gl-label(for="reg-lname") Username *
+                  input.input-text.input-text--primary-style#reg-username(type="text" value=`${user.username}` placeholder=`${user.username}`)
+              .gl-inline
+                .u-s-m-b-30
+                  span.gl-label BIRTHDAY
+                    .gl-dob
+                      select.select-box.select-box--primary-style#day
+                        option(selected)= user.day 
+                        if !user.day
+                          option(selected) Day 
+                          - var n = 1;
+                            while n <= 31 
+                              option(value=`${n}`)= (n < 10 ? `0${n++}` : n++)
+                        else 
+                          option(value=`${user.day}` selected)= user.day 
+                          - var n = 1;
+                            while n <= 31 
+                              option(value=`${n}`)= (n < 10 ? `0${n++}` : n++)
+                              
+                      select.select-box.select-box--primary-style#month
+                        if !user.month
+                          option(selected) Month 
+                          - var n = 1;
+                            while n <= 12 
+                              option(value=`${n}`)= (n < 10 ? `0${n++}` : n++)
+                        else 
+                          option(value=`${user.year}` selected)= user.month 
+                          - var n = 1;
+                            while n <= 12 
+                              option(value=`${n}`)= (n < 10 ? `0${n++}` : n++)
+                              
+                      select.select-box.select-box--primary-style#year
+                        if !user.year
+                          option(selected) Year
+                          - var n = 2021;
+                            while n >= 1940 
+                              option(value=`${n}`)= n--
+                        else 
+                          option(value=`${user.year}` selected)= user.year
+                          - var n = 2021;
+                            while n >= 1940 
+                              option(value=`${n}`)= n--
+                          
+                .u-s-m-b-30
+                  label.gl-label(for="gender") GENDER
+                    select.select-box.select-box--primary-style.u-w-100#gender
+                      if user.gender 
+                        option(value=`${ user.gender }` selected)= user.gender 
+                        option(value=`${ user.gender == "Female" ?`Male` : 'Female'}`)=  user.gender == "Female" ?`Male` : 'Female'
+                      if !user.gender
+                        option(selected) select
+                        option(value=`Male`) Male
+                        option(value=`Female`) Female
+              .gl-inline
+                .u-s-m-b-30
+                  h2.dash__h2.u-s-m-b-8 E-mail
+                  span.dash__text= user.email
+                  input.none-input.input-text.input-text--primary-style#reg-email(type="text" value=`${user.email}` placeholder=`${user.email}`)
+                  .dash__link.dash__link--secondary
+                    a.change Change
+                .u-s-m-b-30
+                  h2.dash__h2.u-s-m-b-8 Phone
+                  span.dash__text= (user.phone? `0${user.phone}`: 'Please enter your mobile')
+                  input.none-input.input-text.input-text--primary-style#reg-phone(type="text" value=`${user.phone ? `0${user.phone}` : ''}` placeholder=`${user.phone ?`0${user.phone}` : ''}`)
+                  .dash__link.dash__link--secondary
+                    a.add Add
+              button.btn.btn--e-brand-b-2(type="submit") SAVE

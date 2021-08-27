@@ -1,0 +1,184 @@
+extends ../layouts/layout
+
+block content
+  .app-content
+    .u-s-p-t-90
+      .container
+        .row
+          .col-lg-5
+            .pd-breadcrumb.u-s-m-b-30
+              ul.pd-breadcrumb__list
+                li.has-separator 
+                  a Home
+                if (data.singleProduct.Categories )
+                  li.has-separator
+                    a= data.singleProduct.Categories.name
+                li.is-marked
+                  a= data.singleProduct.name
+            .pd.u-s-m-b-30
+              .slider-fouc.pd-wrap
+                #pd-o-initiate
+                  .pd-o-img-wrap(data-src="/images/product/product-d-1.jpg")
+                    img.u-img-fluid(src="/images/product/product-d-1.jpg" data-zoom-image="/images/product/product-d-1.jpg")
+                  .pd-o-img-wrap(data-src="/images/product/product-d-2.jpg")
+                    img.u-img-fluid(src="/images/product/product-d-2.jpg" data-zoom-image="/images/product/product-d-2.jpg")
+                  .pd-o-img-wrap(data-src="/images/product/product-d-3.jpg")
+                    img.u-img-fluid(src="/images/product/product-d-3.jpg" data-zoom-image="/images/product/product-d-3.jpg")
+                  .pd-o-img-wrap(data-src="/images/product/product-d-4.jpg")
+                    img.u-img-fluid(src="/images/product/product-d-4.jpg" data-zoom-image="/images/product/product-d-4.jpg")
+                  .pd-o-img-wrap(data-src="/images/product/product-d-4.jpg")
+                    img.u-img-fluid(src="/images/product/product-d-4.jpg" data-zoom-image="/images/product/product-d-4.jpg")
+                span.pd-text Click for larger zoom
+              .slider-fouc
+                #pd-o-thumbnail
+                  div 
+                    img.u-img-fluid(src="/images/product/product-d-1.jpg" alt="")
+                  div 
+                    img.u-img-fluid(src="/images/product/product-d-2.jpg" alt="")
+                  div 
+                    img.u-img-fluid(src="/images/product/product-d-3.jpg" alt="")
+                  div 
+                    img.u-img-fluid(src="/images/product/product-d-4.jpg" alt="")
+                  div 
+                    img.u-img-fluid(src="/images/product/product-d-5.jpg" alt="")
+
+          .col-lg-7
+            .pd-detail
+              div 
+                span.pd-detail__name= data.singleProduct.name
+              .pd-detail__inline
+                if data.singleProduct.priceDiscount
+                  span.pd-detail__price $#{data.singleProduct.price}
+                  span.pd-detail__discount (#{data.singleProduct.priceDiscount}% OFF)
+                  del.pd-detail__del $#{data.singleProduct.price - data.singleProduct.priceDiscount /100}
+                else 
+                  span.pd-detail__price $#{data.singleProduct.price}
+            .u-s-m-b-15
+              .pd-detail__rating.gl-rating-style
+                i.fas.fa-star
+                i.fas.fa-star
+                i.fas.fa-star
+                i.fas.fa-star
+                i.fas.fa-star
+                span.pd-detail__review.u-s-m-l-4
+                  a.reviewQunitiy(href="#") #{data.singleProduct.ratingsQuantity} Reviews
+            .u-s-m-b-15
+              .pd-detail__inline
+                span.pd-detail__stock #{data.singleProduct.stock} in stock
+            .u-s-m-b-15
+              span.pd-detail__preview-desc= data.singleProduct.summery
+            .u-s-m-b-15
+              .pd-detail__inline
+                span.pd-detail__click-wrap
+                  i.far.fa-heart.u-s-m-r-6
+                  a(href="#") Add to Wishlist
+                  span.pd-detail__click-count (222)
+            .u-s-m-b-15
+              form.pd-detail__form
+                .pd-detail-inline-2
+                  .u-s-m-b-15
+                    .input-counter
+                      span.input-counter__minus.fas.fa-minus
+                      input.input-counter__text.input-counter--text-primary-style(type="text" value="1" data-min="1" data-max="1000")
+                      span.input-counter__plus.fas.fa-plus
+                  .u-s-m-b-15
+                    button.btn.btn--e-brand-b-2(type="submit") Add to Cart
+            .u-s-m-b-15
+              span.pd-detail__label.u-s-m-b-8 Product Policy:
+              ul.pd-detail__policy-list
+                li 
+                  i.fas.fa-check-circle.u-s-m-r-8
+                  span Buyer Protection.
+    .u-s-p-y-90
+      .container
+        .row
+          .col-lg-12
+            .pd-tab
+              .u-s-m-b-30
+                ul.nav.pd-tab__list
+                  li.nav-item
+                    a.nav-link.active(data-toggle="tab" href="#pd-desc") DESCRIPTION
+                  li.nav-item
+                    a.nav-link(id="view-review" data-toggle="tab" href="#pd-rev") REVIEWS
+                      span (#{data.singleProduct.ratingsQuantity })
+              .tab-content
+                .tab-pane.fade.show.active#pd-desc
+                  .pd-tab__desc
+                    .u-s-m-b-15
+                      p= data.singleProduct.description
+                    .u-s-m-b-30
+                      ul  
+                        li 
+                          i.fas.fa-check.u-s-m-r-8
+                          span Buyer Protection.
+                    .u-s-m-b-15
+                      h4 PRODUCT INFORMATION
+                      .u-s-m-b-15
+                        .pd-table.gl-scroll
+                          table
+                            tbody
+                              tr 
+                                td Main Material
+                                td Cotton
+                              tr 
+                                td Color
+                                td Green, Blue, Red
+                              tr 
+                                td Sleeves
+                                td Long Sleeve
+                              tr 
+                                td Top Fit
+                                td Regular
+                              tr 
+                                td Print
+                                td Not Printed
+                              tr 
+                                td Neck
+                                td Regular
+                              tr 
+                                td Top Fit
+                                td Round Neck
+                              tr 
+                                td Pieces Count
+                                td 1 Piece
+                              tr 
+                                td Occasion
+                                td Casual
+                              tr 
+                                td Shipping Weight (kg)
+                                td 0.5
+                .tab-pane#pd-rev
+                  .pd-tab__rev
+                    .u-s-m-b-30
+                      .pd-tab__rev-score
+                        .u-s-m-b-8
+                          h2 #{data.singleProduct.ratingsQuantity}  Reviews  (#{data.singleProduct.ratingsAverage})
+                        .gl-rating-style-2.u-s-m-b-8
+                          i.fas.fa-star
+                          i.fas.fa-star
+                          i.fas.fa-star
+                          i.fas.fa-star
+                          i.fas.fa-star
+                        .u-s-m-b-8
+                          h4 We want to hear from you!
+                        span.gl-text Tell us what you think about this item
+                    .u-s-m-b-30
+                      .pd-tab__rev-f1
+                        .rev-f1__group
+                          .u-s-m-b-15
+                            if (data.singleProduct.User)
+                              h2 #{data.singleProduct.ratingsQuantity} Review(s) for #{data.singleProduct.User.fristName} #{data.singleProduct.User.lastName}
+                      .rev-f1__review
+                        .review-o.u-s-m-b-15
+                          each review in data.singleProduct.reviews
+                            .review-o__info.u-s-m-b-8
+                              span.review-o__name #{review.User.fristName}  #{review.User.lastName}
+                              span.review-o__date= review.CreatedAt
+                            .review-o__rating.gl-rating-style.u-s-m-b-8 
+                              i.fas.fa-star
+                              i.fas.fa-star
+                              i.fas.fa-star
+                              i.fas.fa-star
+                              i.fas.fa-star
+                              span #{review.rating}
+                            p.review-o__text= review.review

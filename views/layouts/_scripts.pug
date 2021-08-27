@@ -1,0 +1,23 @@
+script.
+    window.ga = function() {
+        ga.q.push(arguments)
+    };
+    ga.q = [];
+    ga.l = +new Date;
+    ga('create', 'UA-XXXXX-Y', 'auto');
+    ga('send', 'pageview')
+script(src="https://www.google-analytics.com/analytics.js" async defer)
+script(src="/javascripts/vendor.js")
+script(src="/javascripts/jquery.shopnav.js")
+script(src="/javascripts/app.js")
+script(src="/javascripts/bundle.js")
+
+noscript
+  app-setting
+    .container
+      .row
+        .col-12
+          .app-setting__wrap
+            h1.app-setting__h1 JavaScript is disabled in your browser.
+
+            span.app-setting__text Please enable JavaScript in your browser or upgrade to a JavaScript-capable browser.

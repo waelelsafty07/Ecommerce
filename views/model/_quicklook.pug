@@ -1,0 +1,85 @@
+.modal.fade#quick-look
+  .modal-dialog.modal-dialog-centered
+    .modal-content.modal--shadow
+      button.btn.dismiss-button.fas.fa-times(type="button" data-dismiss="modal")
+      .modal-body
+        .row 
+          .col-lg-5
+            .pd-breadcrumb.u-s-m-b-30
+              ul.pd-breadcrumb__list
+                li.has-separator
+                  a(href="#") Home
+                li.has-separator
+                  a.categories(href="#") Electronics
+                li.is-marked 
+                  a.breadname(href="#") 
+            .pd.u-s-m-b-30
+              .pd-wrap
+                #js-product-detail-modal
+                  div   
+                    img.u-img-fluid(src="/images/product/product-d-1.jpg" alt="")
+                  div   
+                    img.u-img-fluid(src="/images/product/product-d-2.jpg" alt="")
+                  div   
+                    img.u-img-fluid(src="/images/product/product-d-3.jpg" alt="")
+                  div   
+                    img.u-img-fluid(src="/images/product/product-d-4.jpg" alt="")
+                  div   
+                    img.u-img-fluid(src="/images/product/product-d-5.jpg" alt="")
+              .u-s-m-t-15
+                #js-product-detail-modal-thumbnail
+                  div   
+                    img.u-img-fluid(src="/images/product/product-d-1.jpg" alt="")
+                  div   
+                    img.u-img-fluid(src="/images/product/product-d-2.jpg" alt="")
+                  div   
+                    img.u-img-fluid(src="/images/product/product-d-3.jpg" alt="")
+                  div   
+                    img.u-img-fluid(src="/images/product/product-d-4.jpg" alt="")
+                  div   
+                    img.u-img-fluid(src="/images/product/product-d-5.jpg" alt="")
+          .col-lg-7
+            .pd-detail
+              div 
+                span.pd-detail__name Nikon Camera 4k Lens Zoom Pro
+              div   
+                .pd-detail__inline
+                  span.pd-detail__price $6.99
+                  span.pd-detail__discount (76% OFF)
+                  del.pd-detail__del $28
+              .u-s-m-b-15
+                .pd-detail__rating.gl-rating-style
+                  i.fas.fa-star
+                  i.fas.fa-star
+                  i.fas.fa-star
+                  i.fas.fa-star
+                  i.fas.fa-star
+                  span.pd-detail__review.u-s-m-l-4
+                    a.reviewQunitiy(href="#") 23 Reviews
+              .u-s-m-b-15
+                .pd-detail__inline
+                  span.pd-detail__stock 200 in stock
+              .u-s-m-b-15
+                span.pd-detail__preview-desc Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+              .u-s-m-b-15
+                .pd-detail__inline
+                  span.pd-detail__click-wrap
+                    i.far.fa-heart.u-s-m-r-6
+                    a(href="#") Add to Wishlist
+                    span.pd-detail__click-count (222)
+              .u-s-m-b-15
+                form.pd-detail__form
+                  .pd-detail-inline-2
+                    .u-s-m-b-15
+                      .input-counter
+                        span.input-counter__minus.fas.fa-minus
+                        input.input-counter__text.input-counter--text-primary-style(type="text" value="1" data-min="1" data-max="1000")
+                        span.input-counter__plus.fas.fa-plus
+                    .u-s-m-b-15
+                      button.btn.btn--e-brand-b-2(type="submit") Add to Cart
+              .u-s-m-b-15
+                span.pd-detail__label.u-s-m-b-8 Product Policy:
+                ul.pd-detail__policy-list
+                  li 
+                    i.fas.fa-check-circle.u-s-m-r-8
+                    span Buyer Protection.

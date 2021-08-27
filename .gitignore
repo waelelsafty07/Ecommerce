@@ -1,0 +1,5 @@
+/.cache
+/.vscode
+/dev-data
+/node_modules
+/.env

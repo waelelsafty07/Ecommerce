@@ -1,0 +1,304 @@
+header.header--style-1.header--box-shadow
+  nav.primary-nav.primary-nav-wrapper--border
+    .container
+      .primary-nav
+        a.main-logo(href="index.html")
+          //- img(src="images/logo/logo-1.png" alt="")
+        form.main-form
+          label(for="main-search")
+          input.input-text.input-text--border-radius.input-text--style-1(type="text" id="main-search" placeholder="Search")
+          button.btn.btn--icon.fas.fa-search.main-search-button(type="submit")
+        .menu-init#navigation
+          button.btn.btn--icon.toggle-button.fas.fa-cogs(type="button")
+          .ah-lg-mode
+            span.ah-close ✕ Close
+            ul.ah-list.ah-list--design1.ah-list--link-color-secondary
+              li.has-dropdown(data-tooltip="tooltip" data-placement="left" title="Account")
+                a
+                  i.far.fa-user-circle
+                span.js-menu-toggle
+                ul(style="width:120px")
+                  if (user && user.role == "user")
+                    li 
+                      a( href="/buyer/dashboard")
+                        i.fas.fa-user-circle.u-s-m-r-6
+                        span Account
+                  if (user && user.role == "seller")
+                    li 
+                      a( href="/seller/dashboard")
+                        i.fas.fa-user-circle.u-s-m-r-6
+                        span Account
+                  if !user
+                    li 
+                      a( href="signup.html")
+                        i.fas.fa-user-plus.u-s-m-r-6
+                        span Signup
+                    li 
+                      a( href="/buyer/login")
+                        i.fas.fa-lock.u-s-m-r-6
+                        span Signin
+                  if user
+                    li 
+                      a( href="signin.html")
+                        i.fas.fa-lock-open.u-s-m-r-6
+                        span SignOut    
+              //- li.has-dropdown(data-tooltip="tooltip" data-placement="left" title="Settings")
+              //-   a 
+              //-     i.fas.fa-user-cog        
+              //-   span.js-menu-toggle
+              //-   //- ul(style="width:120px")
+              //-   //-   li.has-dropdown.has-dropdown--ul-right-100
+              //-   //-     a Language
+              //-   //-       i.fas.fa-angle-down.u-s-m-l-6
+              //-   //-     span.js-menu-toggle
+              //-   //-     ul(style="width:120px")
+              //-   //-       li
+              //-   //-         a.u-c-brand ENGLISH
+              //-   //-       li 
+              //-   //-         a Arabic
+              
+              li(data-tooltip="tooltip" data-placement="left" title="Contact")
+                a( href="tel:+0900901904")
+                  i.fas.fa-phone-volume
+              li(data-tooltip="tooltip" data-placement="left" title="Mail")
+                a( href="mailto:contact@domain.com")
+                  i.far.fa-envelope
+  nav.secondary-nav-wrapper
+    .container 
+      .secondary-nav
+        .menu-init#navigation1
+          button.btn.btn--icon.toggle-mega-text.toggle-button( type="button") M
+          .ah-lg-mode
+            span.ah-close ✕ Close 
+            ul.ah-list
+              li.has-dropdown
+                span.mega-text M
+                span.js-menu-toggle
+                .mega-menu
+                  .mega-menu-wrap
+                    .mega-menu-list
+                      ul
+                        li.js-active
+                          a
+                            i.fas.fa-tv.u-s-m-r-6
+                            span Electronics
+                          span.js-menu-toggle.js-toggle-mark
+                        li
+                          a
+                            i.fas.fa-female.u-s-m-r-6
+                            span Women's Clothing
+                          span.js-menu-toggle
+                        li
+                          a
+                            i.fas.fa-male.u-s-m-r-6
+                            span Men's Clothing
+                          span.js-menu-toggle
+                        li
+                          a
+                            i.fas.fa-utensils.u-s-m-r-6
+                            span Food & Supplies
+                          span.js-menu-toggle
+                    .mega-menu-content.js-active
+                      .row
+                        .col-lg-3
+                          ul 
+                            li.mega-list-title
+                              a(href="shop-side-version-2.html") 3D PRINTER & SUPPLIES
+                        .col-lg-3
+                          ul 
+                            li.mega-list-title
+                              a(href="shop-side-version-2.html") 3D PRINTER & SUPPLIES
+                        .col-lg-3
+                          ul 
+                            li.mega-list-title
+                              a(href="shop-side-version-2.html") 3D PRINTER & SUPPLIES
+                        .col-lg-3
+                          ul 
+                            li.mega-list-title
+                              a(href="shop-side-version-2.html") 3D PRINTER & SUPPLIES
+                            li.mega-list-title
+                              a(href="shop-side-version-2.html") 3D PRINTER & SUPPLIES
+                            li.mega-list-title
+                              a(href="shop-side-version-2.html") 3D PRINTER & SUPPLIES
+                      br
+                      .row
+                        .col-lg-3
+                          ul 
+                            li.mega-list-title
+                              a(href="shop-side-version-2.html") 3D PRINTER & SUPPLIES
+                        .col-lg-3
+                          ul 
+                            li.mega-list-title
+                              a(href="shop-side-version-2.html") 3D PRINTER & SUPPLIES
+                        .col-lg-3
+                          ul 
+                            li.mega-list-title
+                              a(href="shop-side-version-2.html") 3D PRINTER & SUPPLIES
+                        .col-lg-3
+                          ul 
+                            li.mega-list-title
+                              a(href="shop-side-version-2.html") 3D PRINTER & SUPPLIES
+                    .mega-menu-content
+                      .row
+                        .col-lg-6.mega-image
+                          .mega-banner
+                            a.u-d-block(href="shop-side-version-2.html")
+                              img.u-img-fluid.u-d-block(src="/images/banners/banner-mega-1.jpg" alt="")
+                        .col-lg-6.mega-image
+                          .mega-banner
+                            a.u-d-block(href="shop-side-version-2.html")
+                              img.u-img-fluid.u-d-block(src="/images/banners/banner-mega-2.jpg" alt="")
+                      br
+                      .row
+                        .col-lg-3
+                          ul 
+                            li.mega-list-title
+                              a(href="shop-side-version-2.html") HOT CATEGORIES
+                            li.mega-list-title
+                              a(href="shop-side-version-2.html") Dresses
+                            li.mega-list-title
+                              a(href="shop-side-version-2.html") Blouses & Shirts
+                            li.mega-list-title
+                              a(href="shop-side-version-2.html") T-shirts
+                            li.mega-list-title
+                              a(href="shop-side-version-2.html") Rompers
+                        .col-lg-3
+                          ul 
+                            li.mega-list-title
+                              a(href="shop-side-version-2.html") HOT CATEGORIES
+                            li.mega-list-title
+                              a(href="shop-side-version-2.html") Dresses
+                            li.mega-list-title
+                              a(href="shop-side-version-2.html") Blouses & Shirts
+                            li.mega-list-title
+                              a(href="shop-side-version-2.html") T-shirts
+                            li.mega-list-title
+                              a(href="shop-side-version-2.html") Rompers
+                        .col-lg-3
+                          ul 
+                            li.mega-list-title
+                              a(href="shop-side-version-2.html") HOT CATEGORIES
+                            li.mega-list-title
+                              a(href="shop-side-version-2.html") Dresses
+                            li.mega-list-title
+                              a(href="shop-side-version-2.html") Blouses & Shirts
+                            li.mega-list-title
+                              a(href="shop-side-version-2.html") T-shirts
+                            li.mega-list-title
+                              a(href="shop-side-version-2.html") Rompers
+                        .col-lg-3
+                          ul 
+                            li.mega-list-title
+                              a(href="shop-side-version-2.html") HOT CATEGORIES
+                            li.mega-list-title
+                              a(href="shop-side-version-2.html") Dresses
+                            li.mega-list-title
+                              a(href="shop-side-version-2.html") Blouses & Shirts
+                            li.mega-list-title
+                              a(href="shop-side-version-2.html") T-shirts
+                            li.mega-list-title
+                              a(href="shop-side-version-2.html") Rompers
+                      br    
+                      .row
+                        .col-lg-3
+                          ul 
+                            li.mega-list-title
+                              a(href="shop-side-version-2.html") HOT CATEGORIES
+                            li.mega-list-title
+                              a(href="shop-side-version-2.html") Dresses
+                            li.mega-list-title
+                              a(href="shop-side-version-2.html") Blouses & Shirts
+                            li.mega-list-title
+                              a(href="shop-side-version-2.html") T-shirts
+                            li.mega-list-title
+                              a(href="shop-side-version-2.html") Rompers
+                        .col-lg-3
+                          ul 
+                            li.mega-list-title
+                              a(href="shop-side-version-2.html") HOT CATEGORIES
+                            li.mega-list-title
+                              a(href="shop-side-version-2.html") Dresses
+                            li.mega-list-title
+                              a(href="shop-side-version-2.html") Blouses & Shirts
+                            li.mega-list-title
+                              a(href="shop-side-version-2.html") T-shirts
+                            li.mega-list-title
+                              a(href="shop-side-version-2.html") Rompers
+                        .col-lg-3
+                          ul 
+                            li.mega-list-title
+                              a(href="shop-side-version-2.html") HOT CATEGORIES
+                            li.mega-list-title
+                              a(href="shop-side-version-2.html") Dresses
+                            li.mega-list-title
+                              a(href="shop-side-version-2.html") Blouses & Shirts
+                            li.mega-list-title
+                              a(href="shop-side-version-2.html") T-shirts
+                            li.mega-list-title
+                              a(href="shop-side-version-2.html") Rompers
+                        .col-lg-3 
+                          ul 
+                            li.mega-list-title
+                              a(href="shop-side-version-2.html") HOT CATEGORIES
+                            li.mega-list-title
+                              a(href="shop-side-version-2.html") Dresses
+                            li.mega-list-title
+                              a(href="shop-side-version-2.html") Blouses & Shirts
+                            li.mega-list-title
+                              a(href="shop-side-version-2.html") T-shirts
+                            li.mega-list-title
+                              a(href="shop-side-version-2.html") Rompers         
+                      br
+                      .row
+                        .col-lg-9.mega-image
+                          .mega-banner
+                            a.u-d-block(href="shop-side-version-2.html")
+                              img.u-img-fluid.u-d-block(src="/images/banners/banner-mega-3.jpg" alt="")
+                        .col-lg-3.mega-image
+                          .mega-banner
+                            a.u-d-block(href="shop-side-version-2.html")
+                              img.u-img-fluid.u-d-block(src="/images/banners/banner-mega-4.jpg" alt="")
+                    .mega-menu-content
+                      h5 No Categories
+                    .mega-menu-content
+                      h5 No Categories
+        .menu-init#navigation2
+          button.btn.btn--icon.toggle-button.fas.fa-cog( type="button")
+          .ah-lg-mode
+            span.ah-close ✕ Close
+            ul.ah-list.ah-list--design2.ah-list--link-color-secondary
+              li 
+                a NEW ARRIVALS
+              li 
+                a NEW ARRIVALS
+              li 
+                a NEW ARRIVALS
+        .menu-init#navigation3
+          button.btn.btn--icon.toggle-button.fas.fa-shopping-bag.toggle-button-shop( type="button")
+          span.total-item-round 2
+          .ah-lg-mode
+            span.ah-close
+            ul.ah-list.ah-list--design1.ah-list--link-color-secondary
+              li 
+                a 
+                  i.fas.fa-home
+              li 
+                a 
+                  i.fas.fa-heart
+              li.has-dropdown
+                a.mini-cart-shop-link
+                  i.fas.fa-shopping-bag
+                  if session.cart
+                    span.total-item-round= session.cart.totalQty
+                span.js-menu-toggle
+                .mini-cart
+                  .mini-product-container.gl-scroll.u-s-m-b-15
+                    .mini-product-stat
+                      if products && session.cart
+                      .mini-action
+                        a.mini-link.btn--e-brand-b-2 PROCEED TO CHECKOUT
+                        a.mini-link.btn--e-transparent-secondary-b-2( href="/products/cart" ) VIEW CART
+                        
+              
+                  
+                      

@@ -1,0 +1,61 @@
+.app-content
+  .u-s-p-y-60
+    .section__content
+      .container
+        .breadcrumb
+          .breadcrumb__wrap
+            ul.breadcrumb__list
+              li.has-separator
+                a(href="index.html") Home
+              li.is-marked
+                a(href="dashboard.html") My Account
+  .u-s-p-b-60
+    .section__content
+      .dash
+        .container
+          .row 
+            .col-lg-3.col-md-12
+              .dash__box.dash__box--bg-white.dash__box--shadow.u-s-m-b-30
+                .dash__pad-1
+                  span.dash__text.u-s-m-b-16 Hello, John Doe
+                  ul.dash__f-list
+                    li
+                      a.dash-active(href="index.html") Manage My Account
+                    li 
+                      a(href=`/buyer/dashboard/myprofile`) My Profile
+                    li 
+                      a Address Book
+                    li 
+                      a My Orders
+                    li 
+                      a My Payment Options
+                    li 
+                      a My Returns & Cancellations
+              .dash__box.dash__box--bg-white.dash__box--shadow.dash__box--w
+                .dash__pad-1
+                  ul.dash__w-list
+                    li 
+                      .dash__w-wrap
+                        span.dash__w-icon.dash__w-icon-style-1
+                          i.fas.fa-cart-arrow-down
+                        span.dash__w-text 4
+                        span.dash__w-name Orders Placed
+                    li 
+                      .dash__w-wrap
+                        span.dash__w-icon.dash__w-icon-style-2
+                          i.fas.fa-times
+                        span.dash__w-text 0
+                        span.dash__w-name Cancel Orders
+                    li 
+                      .dash__w-wrap
+                        span.dash__w-icon.dash__w-icon-style-3
+                          i.fas.fa-heart
+                        span.dash__w-text 0
+                        span.dash__w-name Wishlist
+            .col-lg-9.col-md-12
+              block content 
+            
+                        
+                        
+                        
+                        

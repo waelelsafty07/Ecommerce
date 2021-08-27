@@ -1,0 +1,32 @@
+extends ../../layouts/layout 
+block content 
+  include ../_nav
+    .dash__box.dash__box--shadow.dash__box--radius.dash__box--bg-white.u-s-m-b-30
+      .dash__pad-2
+        h1.dash__h1.u-s-m-b-14 My Orders
+        span.dash__text.u-s-m-b-30 Here you can see all products that have been delivered.
+        .m-order__list
+          each order in Orders
+            .m-order__get
+              .manage-o__header.u-s-m-b-30
+                .dash-l-r
+                  div 
+                    .manage-o__text-2.u-c-secondary Order ##{order.orderId}
+                    .manage-o__text.u-c-silver Placed on 26 Oct 2016 09:08:37
+                  .dash__link.dash__link--brand
+                    a(href=`${order.id}`) MANAGE
+              .manage-o__description
+                .description__container
+                  .description__img-wrap
+                    img.u-img-fluid(src="/images/product/electronic/product3.jpg" alt="")  
+                  .description-title #{order.Products.name}
+                .description__info-wrap
+                  div 
+                    span(class = `manage-o__badge badge--${order.shipping}`) #{order.shipping}
+                  div 
+                    span.manage-o__text-2.u-c-silver Quantity:
+                      span.manage-o__text-2.u-c-secondary #{order.qty}
+                  div 
+                    span.manage-o__text-2.u-c-secondary Total:
+                      span.manage-o__text-2.u-c-secondary $#{order.price}
+                        

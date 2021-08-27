@@ -1,0 +1,39 @@
+extends ../layouts/layout
+block content
+  .app-content
+    .u-s-p-b-60
+      .section__intro.u-s-m-b-60
+        .container
+          .row
+            .col-lg-12
+              .section__text-wrap
+                h1.section__heading.u-c-secondary ALREADY REGISTERED?
+      .section__content
+        .container 
+          .row.row--center
+            .col-lg-6.col-md-8.u-s-m-b-30
+              .l-f-o
+                .l-f-o__pad-box
+                  h1 I'M NEW CUSTOMER
+                  span.gl-text.u-s-m-b-30 By creating an account with our store, you will be able to move through the checkout process faster, store shipping addresses, view and track your orders in your account and more.
+                  .u-s-m-b-15
+                    a.l-f-o__create-link.btn--e-transparent-brand-b-2 CREATE AN ACCOUNT
+                  h1.gl-h1
+                  span.gl-text.u-s-m-b-30 If you have an account with us, please log in
+                  form.l-f-o__form.login-buyer-form
+                    .gl-s-api
+                      .u-s-m-b-15
+                        button.gl-s-api__btn.gl-s-api__btn--fb(type="button")
+                          i.fab.fa-facebook-f
+                          span Signin with Facebook
+                    .u-s-m-b-30
+                      label.gl-label(for="login-email") E-MAIL *
+                      input.input-text.input-text--primary-style#login-email(placeholder="Enter E-mail" type= "text")
+                    .u-s-m-b-30
+                      label.gl-label(for="login-password") E-MAIL *
+                      input.input-text.input-text--primary-style#login-password(placeholder="Enter Password" type= "password")
+                    .gl-inline
+                      .u-s-m-b-30
+                        button.btn.btn--e-transparent-brand-b-2(type="submit") LOGIN
+                      .u-s-m-b-30
+                        a.gl-link Lost Your Password?

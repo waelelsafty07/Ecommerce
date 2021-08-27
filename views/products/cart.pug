@@ -1,0 +1,86 @@
+extends ../layouts/layout
+
+block content
+  .app-content
+    .u-s-p-y-60
+      .section__content
+        .container
+          .breadcrumb
+            .breadcrumb__wrap
+              ul.breadcrumb__list
+                li.has-separator
+                  a(href="index.html") Home
+                li.is-marked
+                  a(href="dashboard.html") Cart
+    .u-s-p-b-60
+      .section__intro.u-s-m-b-60
+        .container
+          .row
+            .col-lg-12
+              .section__text-wrap
+                h1.section__heading.u-c-secondary SHOPPING CART
+      .section__content
+        .container
+          .row
+            .col-lg-12.col-md-12.col-sm-12.u-s-m-b-30
+              .table-responsive
+                table.table-p
+                  tbody
+                    if session.cart
+                      each product in products
+                        tr  
+                          td
+                            .table-p__box
+                              .table-p__img-wrap
+                                img.u-img-fluid(src="images/product/electronic/product3.jpg" alt="")
+                              .table-p__info
+                                span.table-p__name #{product.item.name}
+                                span.table-p__category #{product.item.Categories.name}
+                                //- ul.table-p__variant-list
+                                //-   li 
+                                //-     span Size: 22
+                                //-   li 
+                                //-     span Color: Red
+                          td
+                            if product.item.priceDiscount
+                              span.table-p__price $#{product.item.price - product.item.priceDiscount/100}
+                            else 
+                              span.table-p__price $#{product.item.price}
+                          td
+                            .table-p__input-counter-wrap
+                              .input-counter
+                                span.input-counter__minus.fas.fa-minus
+                                input.input-counter__text.input-counter--text-primary-style(type="text" value=`${product.qty}` data-min="1" data-max=`${product.item.stock}`)
+                                span.input-counter__plus.fas.fa-plus
+                          td 
+                            .table-p__del-wrap
+                              a.far.fa-trash-alt.table-p__delete-link
+            .col-lg-12
+              .route-box
+                .route-box__g1
+                  a.route-box__link
+                    i.fas.fa-long-arrow-alt-left         
+                    span CONTINUE SHOPPING     
+                .route-box__g2
+                  a.route-box__link     
+                    i.fas.fa-trash
+                    span CLEAR CART
+                  a.route-box__link     
+                    i.fas.fa-sync
+                    span UPDATE CART
+    .u-s-p-b-60
+      .section__content
+        .container
+          form.f-cart( method="get" action="/products/cart/checkout")
+            .row
+              .col-lg-4.col-md-6.u-s-m-b-30
+                .f-cart__pad-box
+                  .u-s-m-b-30
+                    table.f-cart__table
+                      tbody 
+                        tr 
+                          td SUBTOTAl
+                          td #{totalPrice}
+                  div         
+                    button.btn.btn--e-brand-b-2(  type="submit") PROCEED TO CHECKOUT
+                

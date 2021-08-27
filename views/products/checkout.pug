@@ -1,0 +1,127 @@
+extends ../layouts/layout
+
+block content
+  .app-content
+    .u-s-p-y-60
+      .section__content
+        .container
+          .breadcrumb
+            .breadcrumb__wrap
+              ul.breadcrumb__list
+                li.has-separator
+                  a(href="index.html") Home
+                li.is-marked
+                  a(href="dashboard.html") Checkout
+    .u-s-p-b-60
+      .section__content 
+        .container
+          .row
+            .col-lg-12
+              #checkout-msg-group
+                .msg.u-s-m-b-30
+                  span.msg__text Returning customer?
+                    a.gl-link(href="#return-customer" data-toggle="collapse") Click here to login
+                  .collapse#return-customer(data-parent="#checkout-msg-group")
+                    .l-f.u-s-m-b-16
+                      span.gl-text.u-s-m-b-16 If you have an account with us, please log in.
+                      form.l-f__form.login-buyer-form
+                        .gl-inline
+                          .u-s-m-b-15
+                            label.gl-label(for="login-email") E-MAIL *
+                            input.input-text.input-text--primary-style(type="text" id="login-email" placeholder="Enter E-mail")
+                          .u-s-m-b-15
+                            label.gl-label(for="login-password") PASSWORD *
+                            input.input-text.input-text--primary-style(type="password" id="login-password" placeholder="Enter Password")
+                        .gl-inline
+                          .u-s-m-b-15
+                            button.btn.btn--e-transparent-brand-b-2(type="submit") LOGIN
+                          .u-s-m-b-15
+                            a.gl-link Lost Your Password?
+    .u-s-p-b-60
+      .section__content
+        .container
+          .checkout-f
+            .row
+              .col-lg-6
+                h1.checkout-f__h1 DELIVERY INFORMATION
+                form.checkout-f__delivery
+                  .u-s-m-b-30
+                    .gl-inline
+                      .u-s-m-b-15
+                        label.gl-label(for="billing-fname") FIRST NAME *
+                        input.input-text.input-text--primary-style(type="text" id="billing-fname" data-bill="")
+                      .u-s-m-b-15
+                        label.gl-label(for="billing-lname") LAST NAME *
+                        input.input-text.input-text--primary-style(type="text" id="billing-lname" data-bill="")
+                  .u-s-m-b-15
+                    label.gl-label( for="billing-email") E-MAIL *
+                    input.input-text.input-text--primary-style(type="text" id="billing-email" data-bill="")
+                  .u-s-m-b-15
+                    label.gl-label( for="billing-phone") Phone *
+                    input.input-text.input-text--primary-style(type="text" id="billing-phone" data-bill="")
+                  .u-s-m-b-15
+                    label.gl-label( for="billing-street") STREET ADDRESS *
+                    input.input-text.input-text--primary-style(type="text" id="billing-street" placeholder="House name and street name" data-bill="")
+                  .u-s-m-b-15
+                    label.gl-label( for="billing-street-optional") STREET ADDRESS *
+                    input.input-text.input-text--primary-style(type="text" id="billing-street-optional" placeholder="Apartment, suite unit etc. (optional)" data-bill="")
+                  .u-s-m-b-15
+                    label.gl-label(for="billing-country") COUNTRY *
+                    select.select-box.select-box--primary-style#billing-country(data-bill="")
+                      option( selected value="Egypt") Egypt
+                  .u-s-m-b-15
+                    label.gl-label( for="billing-town-city") TOWN/CITY *
+                    input.input-text.input-text--primary-style(type="text" id="billing-town-city" data-bill="")  
+                  .u-s-m-b-15
+                    label.gl-label(for="billing-state") STATE/PROVINCE 
+                    select.select-box.select-box--primary-style#billing-state(data-bill="")
+                      option( selected value="") Choose State/Province    
+                  .u-s-m-b-15
+                    label.gl-label(for="billing-zip") ZIP/POSTAL CODE * 
+                    input.input-text.input-text--primary-style(type="text" id="billing-zip" placeholder="Zip/Postal Code" data-bill="")   
+                  div 
+                    button.btn.btn--e-transparent-brand-b-2(type="submit") SAVE          
+              .col-lg-6
+                h1.checkout-f__h1
+                .o-summary
+                  .o-summary__section.u-s-m-b-30
+                    .o-summary__item-wrap.gl-scroll
+                      each product in products
+                        .o-card
+                          .o-card__flex
+                            .o-card__img-wrap
+                              img.u-img-fluid(src="/images/product/electronic/product3.jpg")
+                            .o-card__info-wrap
+                              span.o-card__name
+                                a(href=`/products/${product.item._id}`) #{product.item.name}
+                              span.o-card__quantity Quantity x #{product.qty}
+                              span.o-card__price $#{product.price}
+                          a.o-card__del.far.fa-trash-alt
+                  .o-summary__section.u-s-m-b-30
+                    .o-summary__box
+                      table.o-summary__table
+                        tr 
+                          td SHIPPING
+                          td $4.00
+                        tr 
+                          td SUBTOTAL
+                          td $#{totalPrice}
+                  .o-summary__section.u-s-m-b-30
+                    .o-summary__box
+                      h1.checkout-f__h1 PAYMENT INFORMATION
+                      form.checkout-f__payment(action="/orders/checkout-session" method="post")
+                        .u-s-m-b-10
+                          .radio-box
+                            input#cash-on-delivery(type="radio" name="payment")
+                            .radio-box__state.radio-box__state--primary 
+                              label.radio-box__label(for="cash-on-delivery") Cash on Delivery
+                          span.gl-text.u-s-m-t-6 Pay Upon Cash on delivery. (This service is only available for some countries)
+                        .u-s-m-b-15
+                          .check-box
+                            input#term-and-condition(type="checkbox" )
+                            .check-box__state.check-box__state--primary
+                              label.check-box__label(for="term-and-condition") I consent to the
+                          a.gl-link Terms of Service.
+                        div 
+                          button.btn.btn--e-brand-b-2 PLACE ORDER 
+                          
